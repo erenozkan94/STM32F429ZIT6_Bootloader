@@ -1,0 +1,6 @@
+../Core/CAN/Src/CAN_Messages.c:24:6:FillCANContentAndTransmit	32	static
+../Core/CAN/Src/CAN_Messages.c:53:6:UIBootloaderCommandAnswer	8	static
+../Core/CAN/Src/CAN_Messages.c:66:6:UIUpdateRequestAnswer	40	static
+../Core/CAN/Src/CAN_Messages.c:86:6:UIBINDatasAnswer	8	static
+../Core/CAN/Src/CAN_Messages.c:92:6:UIUpdateCompleated	16	static
+../Core/CAN/Src/CAN_Messages.c:98:6:FindCANMessage	16	static

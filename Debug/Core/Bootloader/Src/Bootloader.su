@@ -1,0 +1,4 @@
+../Core/Bootloader/Src/Bootloader.c:27:6:CheckAndResetAfterUpdate	32	static
+../Core/Bootloader/Src/Bootloader.c:65:6:GetBinFile	48	static
+../Core/Bootloader/Src/Bootloader.c:122:9:Bootloader_CRC_Check	32	static
+../Core/Bootloader/Src/Bootloader.c:140:6:Bootloader_Erase_Flash	40	static
