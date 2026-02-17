@@ -83,4 +83,5 @@ bootloader and application memory structure.
 
 The following CAN interface hardware was used during development:
 
-![CAN Device](Photos/CAN.jpg)
+![CAN Device](CAN.jpg)
+
