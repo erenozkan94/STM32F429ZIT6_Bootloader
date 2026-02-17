@@ -1,94 +1,74 @@
-# STM32F429ZIT6_BOOTLOADER
+# STM32F429ZIT6 CAN Bus Bootloader
 
-STM32 CAN Bus bootloader project demonstrating reliable firmware update
-using **Custom CAN Protocol** in **Bootloader Mode**.
+An STM32 firmware update solution utilizing a **Custom CAN Protocol** in **Bootloader Mode**. 
 
-This project integrates flash sector management, firmware integrity
-verification, and safe application jump logic for industrial firmware
-update scenarios.
+This project integrates flash sector management, firmware integrity verification, and secure application jump logic designed for industrial update scenarios.
 
-------------------------------------------------------------------------
+---
 
 ## 📌 Overview
 
-This project demonstrates how to use: - **CAN Bootloader
-Communication:** Firmware update over CAN Bus using custom packet
-protocol. - **Flash Memory Control:** Application sector erase and write
-management. - **Firmware Integrity Verification:** CRC validation before
-executing firmware. - **Bootloader Safety Architecture:** Separate
-bootloader and application memory structure.
+This project demonstrates the implementation of:
+* **CAN Communication:** Firmware updates over CAN Bus using a custom packet protocol.
+* **Flash Memory Control:** Application sector erase and write management.
+* **Integrity Verification:** CRC validation before executing firmware.
+* **Architecture:** Separate bootloader and application memory structure.
 
-------------------------------------------------------------------------
+---
 
 ## 🧠 Concepts Covered
 
--   **Bootloader Flash Architecture:** Separate Bootloader and
-    Application flash regions.
--   **CAN Packet Firmware Transfer:** Segmented firmware transmission
-    using 8-byte CAN frames.
--   **Flash Safety Management:** Controlled erase and write sequence to
-    prevent corruption.
--   **CRC Validation:** Ensuring firmware integrity before application
-    execution.
--   **Safe Jump Implementation:** Vector table relocation and MSP
-    initialization before jump.
+* **Flash Architecture:** Dedicated regions for Bootloader and Application code.
+* **Segmented Transfer:** Firmware transmission using 8-byte CAN frames.
+* **Safety Management:** Controlled erase/write sequences to prevent memory corruption.
+* **Jump Implementation:** Vector table relocation and MSP initialization prior to execution.
 
-------------------------------------------------------------------------
+---
 
 ## 🛠 Hardware
 
--   **MCU:** STM32F429ZIT6 (LQFP144 package)
--   **Communication:** External CAN Transceiver
--   **Interface Device:** Serial-to-CAN Converter (Used during testing)
+* **MCU:** STM32F429ZIT6 (LQFP144 package)
+* **Communication:** External CAN Transceiver
+* **Interface:** Serial-to-CAN Converter (Used for development/testing)
 
-------------------------------------------------------------------------
+---
 
-## 🔌 CAN Communication (Protocol Concept)
+## 🔌 CAN Communication Protocol
 
-  Command           Description
-  ----------------- -------------------------------------
-  **Handshake**     Bootloader activation request
-  **Flash Erase**   Application flash erase operation
-  **Data Packet**   Firmware data transfer
-  **ACK**           Packet receive confirmation
-  **Finalize**      CRC validation and application jump
+| Command | Description |
+| :--- | :--- |
+| **Handshake** | Bootloader activation request |
+| **Flash Erase** | Application flash erase operation |
+| **Data Packet** | Firmware data transfer |
+| **ACK** | Packet receive confirmation |
+| **Finalize** | CRC validation and application jump |
 
-------------------------------------------------------------------------
+---
 
-## ▶️ How It Works
+## ▶️ Execution Flow
 
-1.  **Boot Decision:** MCU decides bootloader or application at reset.
-2.  **Handshake:** Host requests bootloader mode via CAN communication.
-3.  **Flash Preparation:** Application sectors are erased safely.
-4.  **Firmware Transfer:** Firmware is transmitted using CAN packets.
-5.  **CRC Verification:** Firmware integrity is verified before
-    execution.
-6.  **Application Jump:** Bootloader safely transfers execution to
-    application.
+1. **Boot Decision:** MCU determines the mode (Bootloader vs. Application) at reset.
+2. **Handshake:** Host requests access via CAN communication.
+3. **Flash Prep:** Application sectors are safely erased.
+4. **Data Transfer:** Firmware is transmitted via segmented CAN packets.
+5. **CRC Check:** Integrity is verified to ensure the image is not corrupted.
+6. **Application Jump:** Execution is securely transferred to the main application.
 
-------------------------------------------------------------------------
+---
 
-## 🧪 Testing
+## 📊 Documentation & Setup
 
--   **CAN Communication Stability:** Verified under continuous firmware
-    streaming.
--   **Flash Reliability:** Multiple erase/write cycles tested
-    successfully.
--   **CRC Protection:** Corrupted firmware images correctly rejected.
--   **Boot Safety:** Verified correct vector relocation and execution.
-
-------------------------------------------------------------------------
-
-## 📸 Hardware Configuration
-
-The following CAN interface hardware was used during development:
+Detailed message sequences and hardware configurations used during development:
 
 ![CAN Device](CAN.jpeg)
 
-## 📌 Message Sequence And Details
+* **Sequence Diagram:** Refer to `Documents/BootloaderEN.drawio` for the full logic flow.
+* **Testing:** Verified through continuous streaming, flash cycle stress tests, and CRC rejection of corrupted images.
 
-![Drowio](Documents/BootloaderEN.drawio)
+---
 
-## Software_Update_Interface
-https://github.com/erenozkan94/Software_Update_Interface
+## 🔗 Related Resources
 
+For the host-side interaction, check out the companion interface:
+
+> 🖥 **Update Interface:** [erenozkan94/Software_Update_Interface](https://github.com/erenozkan94/Software_Update_Interface)
