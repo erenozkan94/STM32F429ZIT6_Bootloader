@@ -85,8 +85,10 @@ The following CAN interface hardware was used during development:
 
 ![CAN Device](CAN.jpeg)
 
-## Message Sequence And Details
+## 📌 Message Sequence And Details
 
 ![Drowio](Documents/BootloaderEN.drawio)
 
+## Software_Update_Interface
+https://github.com/erenozkan94/Software_Update_Interface
 
