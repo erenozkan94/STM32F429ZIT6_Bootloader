@@ -1,7 +1,3 @@
-Harika bir detay! Software_Update_Interface reposundaki C# WPF arayüzünü de işin içine katarak, projeyi sadece bir gömülü sistem projesi değil, bir "Full-Stack Embedded Solution" (Tam Kapsamlı Gömülü Sistem Çözümü) olarak sunabiliriz.
-
-İstediğin formata ve verdiğin diğer bilgilere (CAN fotoğrafı, draw.io şeması, datasheetler) tam uyumlu, profesyonel README.md içeriği aşağıdadır:
-
 STM32F429ZIT6 CAN Bus Bootloader & Host UI
 This repository contains a complete solution for updating STM32 firmware over CAN Bus. It includes a custom STM32F429ZIT6 Bootloader and a modern C# WPF Host Interface for managing the update process.
 
@@ -70,3 +66,4 @@ Finalize (0x106): Final CRC check and system reboot.
 System logic and flowcharts are detailed in the Documents folder.
 
 For the visual logic flow, open the .drawio file located in the documents directory.
+
